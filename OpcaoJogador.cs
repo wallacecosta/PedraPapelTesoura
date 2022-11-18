@@ -1,4 +1,4 @@
-﻿public enum Tipo
+﻿public enum OpcaoJogador
 {
     Invalido,
     Pedra,

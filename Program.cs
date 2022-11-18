@@ -1,5 +1,6 @@
-﻿Iniciar();
+﻿using PedraPapelTesoura;
 
+Iniciar();
 
 static void Iniciar()
 {
@@ -12,11 +13,14 @@ static void Iniciar()
     Console.WriteLine("4 - Lagarto");
     Console.WriteLine("5 - Spock");
 
-    Tipo opcaoJogadorHum, opcaoJogadorDois;
+    OpcaoJogador opcaoJogadorHum, opcaoJogadorDois;
     opcaoJogadorHum = EscolhaJogador(out opcaoJogadorHum, 1);
     opcaoJogadorDois = EscolhaJogador(out opcaoJogadorDois, 2);
 
-    Jogar(opcaoJogadorHum, opcaoJogadorDois);
+    var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+    Console.WriteLine(jogo.ObterResultado(opcaoJogadorDois));
+
+    PosJogo();
 }
 
 static void DecisaoMenu(int entrada)
@@ -58,22 +62,14 @@ static void PosJogo()
     DecisaoMenu(decisao);
 }
 
-static Tipo EscolhaJogador(out Tipo opcaoJogador, int jogador)
+static OpcaoJogador EscolhaJogador(out OpcaoJogador opcaoJogador, int jogador)
 {
-    opcaoJogador = Tipo.Invalido;
+    opcaoJogador = OpcaoJogador.Invalido;
     Console.WriteLine($"Jogador {jogador} digite uma opção, seguido de enter.");
     Enum.TryParse(Console.ReadLine(), out opcaoJogador);
 
-    if (opcaoJogador == Tipo.Invalido)
+    if (opcaoJogador == OpcaoJogador.Invalido || (int)opcaoJogador > 5)
         DecisaoMenu((int)opcaoJogador);
 
     return opcaoJogador;
-}
-
-static void Jogar(Tipo opcaoJogadorHum, Tipo opcaoJogadorDois)
-{
-    var pedraPapelTesoura = new PedraPapelTesoura(opcaoJogadorHum, opcaoJogadorDois);
-    pedraPapelTesoura.Resultado();
-
-    PosJogo();
 }
