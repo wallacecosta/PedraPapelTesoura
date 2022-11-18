@@ -10,7 +10,7 @@
             if (opcaoJogadorDois == OpcaoJogador.Pedra || opcaoJogadorDois == OpcaoJogador.Spock)
                 return "Jogador 1 ganhou!";
             else
-                return "Jogador 1 ganhou!";
+                return "Jogador 2 ganhou!";
         }
     }
 }
