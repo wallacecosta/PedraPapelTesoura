@@ -13,8 +13,8 @@ static void Iniciar()
     Console.WriteLine("5 - Spock");
 
     Tipo opcaoJogadorHum, opcaoJogadorDois;
-    opcaoJogadorHum = EscolhaJogador(out opcaoJogadorHum);
-    opcaoJogadorDois = EscolhaJogador(out opcaoJogadorDois);
+    opcaoJogadorHum = EscolhaJogador(out opcaoJogadorHum, 1);
+    opcaoJogadorDois = EscolhaJogador(out opcaoJogadorDois, 2);
 
     Jogar(opcaoJogadorHum, opcaoJogadorDois);
 }
@@ -58,10 +58,10 @@ static void PosJogo()
     DecisaoMenu(decisao);
 }
 
-static Tipo EscolhaJogador(out Tipo opcaoJogador)
+static Tipo EscolhaJogador(out Tipo opcaoJogador, int jogador)
 {
     opcaoJogador = Tipo.Invalido;
-    Console.WriteLine("Jogador 1 digite uma opção, seguido de enter");
+    Console.WriteLine($"Jogador {jogador} digite uma opção, seguido de enter.");
     Enum.TryParse(Console.ReadLine(), out opcaoJogador);
 
     if (opcaoJogador == Tipo.Invalido)
@@ -72,16 +72,8 @@ static Tipo EscolhaJogador(out Tipo opcaoJogador)
 
 static void Jogar(Tipo opcaoJogadorHum, Tipo opcaoJogadorDois)
 {
-    try
-    {
-        var pedraPapelTesoura = new PedraPapelTesoura(opcaoJogadorHum, opcaoJogadorDois);
-        pedraPapelTesoura.Resultado();
+    var pedraPapelTesoura = new PedraPapelTesoura(opcaoJogadorHum, opcaoJogadorDois);
+    pedraPapelTesoura.Resultado();
 
-        PosJogo();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        throw;
-    }
+    PosJogo();
 }

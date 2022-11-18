@@ -22,6 +22,9 @@
 
         switch (_opcaoJogadorHum)
         {
+            case Tipo.Invalido:
+                Console.WriteLine("Opção de jogo inválida!");
+                break;
             case Tipo.Pedra:
                 if (_opcaoJogadorDois == Tipo.Lagarto || _opcaoJogadorDois == Tipo.Tesoura)
                     Console.WriteLine(JOGADOR_HUM_VENCEU);
