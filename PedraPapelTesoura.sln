@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedraPapelTesoura", "PedraPapelTesoura.csproj", "{2FD3CB35-1C6F-4F01-9C95-8D97ED61A907}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{660472E0-AF05-4701-B951-3A8CD0680DA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8A249037-945A-40E5-85C1-D3C502FD7A5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PedraPapelTesouraConsoleApp", "PedraPapelTesouraLagartoSpock\PedraPapelTesouraConsoleApp.csproj", "{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PedraPapelTesouraTests", "PedraPapelTesouraTests\PedraPapelTesouraTests.csproj", "{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PedraPapelTesouraDomain", "PedraPapelTesouraDomain\PedraPapelTesouraDomain.csproj", "{39B34701-E6DC-4BE9-A92D-88ED580A4D2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2FD3CB35-1C6F-4F01-9C95-8D97ED61A907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FD3CB35-1C6F-4F01-9C95-8D97ED61A907}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FD3CB35-1C6F-4F01-9C95-8D97ED61A907}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FD3CB35-1C6F-4F01-9C95-8D97ED61A907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4698FF71-B1FA-4AAE-96EE-0C60A25D6B9E} = {660472E0-AF05-4701-B951-3A8CD0680DA1}
+		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013} = {8A249037-945A-40E5-85C1-D3C502FD7A5A}
+		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A} = {660472E0-AF05-4701-B951-3A8CD0680DA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9B20339-2DC0-4547-8604-CFA7E311AB62}
