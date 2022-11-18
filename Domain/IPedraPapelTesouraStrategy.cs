@@ -1,4 +1,4 @@
-﻿namespace PedraPapelTesoura
+﻿namespace PedraPapelTesoura.Domain
 {
     public interface IPedraPapelTesouraStrategy
     {

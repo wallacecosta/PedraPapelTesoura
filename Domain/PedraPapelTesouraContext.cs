@@ -1,4 +1,4 @@
-﻿namespace PedraPapelTesoura
+﻿namespace PedraPapelTesoura.Domain
 {
     public class PedraPapelTesouraContext
     {
@@ -25,19 +25,19 @@
             switch (opcaoJogadorHum)
             {
                 case OpcaoJogador.Pedra:
-                    _strategy = new PrimeiroJogadorEscolhePedra();
+                    _strategy = new PrimeiroJogadorEscolhePedraStrategy();
                     break;
                 case OpcaoJogador.Papel:
-                    _strategy = new PrimeiroJogadorEscolhePapel();
+                    _strategy = new PrimeiroJogadorEscolhePapelStrategy();
                     break;
                 case OpcaoJogador.Tesoura:
-                    _strategy = new PrimeiroJogadorEscolheTesoura();
+                    _strategy = new PrimeiroJogadorEscolheTesouraStrategy();
                     break;
                 case OpcaoJogador.Spock:
-                    _strategy = new PrimeiroJogadorEscolheSpock();
+                    _strategy = new PrimeiroJogadorEscolheSpockStrategy();
                     break;
                 case OpcaoJogador.Lagarto:
-                    _strategy = new PrimeiroJogadorEscolheLagarto();
+                    _strategy = new PrimeiroJogadorEscolheLagartoStrategy();
                     break;
                 default:
                     throw new ArgumentException("Opção invalida!");

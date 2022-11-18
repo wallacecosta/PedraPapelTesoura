@@ -1,6 +1,6 @@
-﻿namespace PedraPapelTesoura
+﻿namespace PedraPapelTesoura.Domain
 {
-    public class PrimeiroJogadorEscolheLagarto : IPedraPapelTesouraStrategy
+    public class PrimeiroJogadorEscolheLagartoStrategy : IPedraPapelTesouraStrategy
     {
         public OpcaoJogador OpcaoPrimeiroJogador()
             => OpcaoJogador.Lagarto;

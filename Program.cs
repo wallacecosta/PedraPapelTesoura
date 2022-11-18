@@ -1,4 +1,4 @@
-﻿using PedraPapelTesoura;
+﻿using PedraPapelTesoura.Domain;
 
 Iniciar();
 
