@@ -9,9 +9,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Papel_Ganha_Pedra()
         {
-            var opcaoJogadorHum = OpcaoJogador.Papel;
             var opcaoJogadorDois = OpcaoJogador.Pedra;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePapelStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -20,9 +19,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Papel_Ganha_Spock()
         {
-            var opcaoJogadorHum = OpcaoJogador.Papel;
             var opcaoJogadorDois = OpcaoJogador.Spock;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePapelStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -31,9 +29,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Pedra_Ganha_Tesoura()
         {
-            var opcaoJogadorHum = OpcaoJogador.Pedra;
             var opcaoJogadorDois = OpcaoJogador.Tesoura;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePedraStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -42,9 +39,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Pedra_Ganha_Lagarto()
         {
-            var opcaoJogadorHum = OpcaoJogador.Pedra;
             var opcaoJogadorDois = OpcaoJogador.Lagarto;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePedraStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -53,9 +49,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Tesoura_Ganha_Papel()
         {
-            var opcaoJogadorHum = OpcaoJogador.Tesoura;
             var opcaoJogadorDois = OpcaoJogador.Papel;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheTesouraStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -64,9 +59,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Tesoura_Ganha_Lagarto()
         {
-            var opcaoJogadorHum = OpcaoJogador.Tesoura;
             var opcaoJogadorDois = OpcaoJogador.Lagarto;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheTesouraStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -75,9 +69,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Spock_Ganha_Tesoura()
         {
-            var opcaoJogadorHum = OpcaoJogador.Spock;
             var opcaoJogadorDois = OpcaoJogador.Tesoura;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheSpockStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -86,9 +79,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Spock_Ganha_Pedra()
         {
-            var opcaoJogadorHum = OpcaoJogador.Spock;
             var opcaoJogadorDois = OpcaoJogador.Pedra;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheSpockStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -98,9 +90,8 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Lagarto_Ganha_Spock()
         {
-            var opcaoJogadorHum = OpcaoJogador.Lagarto;
             var opcaoJogadorDois = OpcaoJogador.Spock;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheLagartoStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
@@ -109,12 +100,42 @@ namespace PedraPapelTesouraUnitTests
         [Fact]
         public void Lagarto_Ganha_Papel()
         {
-            var opcaoJogadorHum = OpcaoJogador.Lagarto;
             var opcaoJogadorDois = OpcaoJogador.Papel;
-            var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheLagartoStrategy());
             var resultado = jogo.ObterResultado(opcaoJogadorDois);
 
             Assert.Equal(JOGADOR_HUM_GANHOU, resultado);
+        }
+
+        [Fact]
+        public void Primeiro_Jogador_Escolheu_Opcao_Invalida()
+        {
+            var opcaoJogadorDois = OpcaoJogador.Papel;
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolheInvalidoStrategy());
+            var resultado = jogo.ObterResultado(opcaoJogadorDois);
+
+            Assert.Equal("O Jogador 1 escolheu uma Opção Inválida", resultado);
+        }
+
+        [Fact]
+        public void Segundo_Jogador_Escolheu_Opcao_Invalida()
+        {
+            var opcaoJogadorDois = OpcaoJogador.Invalido;
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePapelStrategy());
+            var resultado = jogo.ObterResultado(opcaoJogadorDois);
+
+            Assert.Equal("O Jogador 2 escolheu uma Opção Inválida", resultado);
+        }
+
+
+        [Fact]
+        public void Empate()
+        {
+            var opcaoJogadorDois = OpcaoJogador.Papel;
+            var jogo = new PedraPapelTesouraContext(new PrimeiroJogadorEscolhePapelStrategy());
+            var resultado = jogo.ObterResultado(opcaoJogadorDois);
+
+            Assert.Equal("Empate", resultado);
         }
     }
 }

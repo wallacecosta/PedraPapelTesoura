@@ -13,63 +13,60 @@ static void Iniciar()
     Console.WriteLine("4 - Lagarto");
     Console.WriteLine("5 - Spock");
 
-    OpcaoJogador opcaoJogadorHum, opcaoJogadorDois;
-    opcaoJogadorHum = EscolhaJogador(out opcaoJogadorHum, 1);
-    opcaoJogadorDois = EscolhaJogador(out opcaoJogadorDois, 2);
+    var opcaoJogadorHum = EscolhaJogador(1);
+    var opcaoJogadorDois = EscolhaJogador(2);
+    var strategiaPrimeiroJogador = DefinirEstrategiaPrimeiroJogador(opcaoJogadorHum);
+    var jogo = new PedraPapelTesouraContext(strategiaPrimeiroJogador);
 
-    var jogo = new PedraPapelTesouraContext(opcaoJogadorHum);
     Console.WriteLine(jogo.ObterResultado(opcaoJogadorDois));
 
     PosJogo();
 }
 
-static void DecisaoMenu(int entrada)
+static void PosJogo()
 {
-    var opcaoMenu = 0;
-
-    Console.WriteLine($"Opção digitada {entrada} é invalida. Digite 1 para reiniciar ou 2 para finalizar");
-    int.TryParse(Console.ReadLine(), out opcaoMenu);
+    Console.WriteLine("Digite 1 para reiniciar jogo ou 2 para finalizar.");
+    int.TryParse(Console.ReadLine(), out int opcaoMenu);
 
     Console.Clear();
 
-    if (opcaoMenu == 1)
+    switch (opcaoMenu)
     {
-        Iniciar();
-        return;
+        case 1:
+            Iniciar();
+            break;
+        case 2:
+            Environment.Exit(0);
+            break;
+        default:
+            PosJogo();
+            break;
     }
-
-    if (opcaoMenu == 2)
-        Environment.Exit(0);
-
-    DecisaoMenu(opcaoMenu);
 }
 
-static void PosJogo()
+static OpcaoJogador EscolhaJogador(int jogador)
 {
-    var decisao = 0;
-    Console.WriteLine("Deseja jogar novamente? \nDigite 1 para SIM ou 2 para NÃO");
-    int.TryParse(Console.ReadLine(), out decisao);
-
-    if (decisao == 1)
-    {
-        Iniciar();
-        return;
-    }
-
-    if (decisao == 2)
-        Environment.Exit(0);
-
-    DecisaoMenu(decisao);
-}
-
-static OpcaoJogador EscolhaJogador(out OpcaoJogador opcaoJogador, int jogador)
-{
-    opcaoJogador = OpcaoJogador.Invalido;
     Console.WriteLine($"Jogador {jogador} digite uma opção, seguido de enter.");
-    Enum.TryParse(Console.ReadLine(), out opcaoJogador);
-
-    if (opcaoJogador == OpcaoJogador.Invalido || (int)opcaoJogador > 5)
-        DecisaoMenu((int)opcaoJogador);
+    Enum.TryParse(Console.ReadLine(), out OpcaoJogador opcaoJogador);
 
     return opcaoJogador;
+}
+
+static IPedraPapelTesouraStrategy DefinirEstrategiaPrimeiroJogador(OpcaoJogador opcaoJogadorHum)
+{
+    switch (opcaoJogadorHum)
+    {
+        case OpcaoJogador.Pedra:
+            return new PrimeiroJogadorEscolhePedraStrategy();
+        case OpcaoJogador.Papel:
+            return new PrimeiroJogadorEscolhePapelStrategy();
+        case OpcaoJogador.Tesoura:
+            return new PrimeiroJogadorEscolheTesouraStrategy();
+        case OpcaoJogador.Spock:
+            return new PrimeiroJogadorEscolheSpockStrategy();
+        case OpcaoJogador.Lagarto:
+            return new PrimeiroJogadorEscolheLagartoStrategy();
+        default:
+            return new PrimeiroJogadorEscolheInvalidoStrategy();
+    }
 }
