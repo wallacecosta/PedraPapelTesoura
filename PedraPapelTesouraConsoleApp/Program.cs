@@ -1,4 +1,5 @@
 ﻿using PedraPapelTesoura.Domain;
+using PedraPapelTesouraDomain.Abstraction;
 
 Iniciar();
 
@@ -15,7 +16,7 @@ static void Iniciar()
 
     var opcaoJogadorHum = EscolhaJogador(1);
     var opcaoJogadorDois = EscolhaJogador(2);
-    var strategiaPrimeiroJogador = DefinirEstrategiaPrimeiroJogador(opcaoJogadorHum);
+    var strategiaPrimeiroJogador = EstrategiaUsuarioFactory.Criar(opcaoJogadorHum);
     var jogo = new PedraPapelTesouraContext(strategiaPrimeiroJogador);
 
     Console.WriteLine(jogo.ObterResultado(opcaoJogadorDois));
@@ -50,23 +51,4 @@ static OpcaoJogador EscolhaJogador(int jogador)
     Enum.TryParse(Console.ReadLine(), out OpcaoJogador opcaoJogador);
 
     return opcaoJogador;
-}
-
-static IPedraPapelTesouraStrategy DefinirEstrategiaPrimeiroJogador(OpcaoJogador opcaoJogadorHum)
-{
-    switch (opcaoJogadorHum)
-    {
-        case OpcaoJogador.Pedra:
-            return new PrimeiroJogadorEscolhePedraStrategy();
-        case OpcaoJogador.Papel:
-            return new PrimeiroJogadorEscolhePapelStrategy();
-        case OpcaoJogador.Tesoura:
-            return new PrimeiroJogadorEscolheTesouraStrategy();
-        case OpcaoJogador.Spock:
-            return new PrimeiroJogadorEscolheSpockStrategy();
-        case OpcaoJogador.Lagarto:
-            return new PrimeiroJogadorEscolheLagartoStrategy();
-        default:
-            return new PrimeiroJogadorEscolheInvalidoStrategy();
-    }
 }

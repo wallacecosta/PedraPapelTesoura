@@ -11,4 +11,4 @@ Uma implementação do jogo aplicando Strategy pattern
 
 ## Requisitos
 
-.NET 6
+.NET 8

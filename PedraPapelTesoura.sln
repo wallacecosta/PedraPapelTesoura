@@ -13,6 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PedraPapelTesouraDomain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PedraPapelTesouraConsoleApp", "PedraPapelTesouraConsoleApp\PedraPapelTesouraConsoleApp.csproj", "{E9DDA17B-69E5-4146-ADF4-E665355037C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{FB03F3FE-5FC1-4CE1-A7D9-41A8590F9123}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D77F56D-D641-4A31-9B7C-AB29DF5FDB50}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,7 +45,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A4405A2D-6ED0-4D7E-B80A-C4DF57E78013} = {8A249037-945A-40E5-85C1-D3C502FD7A5A}
 		{39B34701-E6DC-4BE9-A92D-88ED580A4D2A} = {660472E0-AF05-4701-B951-3A8CD0680DA1}
-		{E9DDA17B-69E5-4146-ADF4-E665355037C5} = {660472E0-AF05-4701-B951-3A8CD0680DA1}
+		{E9DDA17B-69E5-4146-ADF4-E665355037C5} = {FB03F3FE-5FC1-4CE1-A7D9-41A8590F9123}
+		{FB03F3FE-5FC1-4CE1-A7D9-41A8590F9123} = {660472E0-AF05-4701-B951-3A8CD0680DA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9B20339-2DC0-4547-8604-CFA7E311AB62}
